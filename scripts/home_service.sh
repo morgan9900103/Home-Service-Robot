@@ -9,4 +9,7 @@ sleep 5
 xterm -e " rosrun rviz rviz -d /home/morganlee/catkin_ws/src/rvizConfig/home_service_robot.rviz " &
 sleep 5
 
-xterm -e " rosrun add_markers add_markers "
+xterm -e " rosrun add_markers add_markers " & 
+sleep 5
+
+xterm -e " rosrun pick_objects pick_objects "

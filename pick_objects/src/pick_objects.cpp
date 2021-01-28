@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
 	// Define a position and orientation for the robot to reach
 	// goal.target_pose.pose.position.x = 1.0;
 	// goal.target_pose.pose.orientation.w = 1.0;
-	float goals[2][3] = {{5.0, 15.0, 0.0}, {0.0, 0.0, 0.0}};
+	double goals[2][2] = {{-1.0, 12.5}, {4.0, -3.0}};
 	int num_points = 2;
 	
 	for (int i = 0; i < num_points; i++) {

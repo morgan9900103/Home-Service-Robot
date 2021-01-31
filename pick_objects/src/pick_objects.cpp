@@ -1,14 +1,13 @@
 #include <ros/ros.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
-#include <tf/tf.h>
 
 // Define a client for to send goal requests to the move_base server through a SimpleActionClient
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 int main(int argc, char** argv) {
 	// Initialize the simple_navigation_goals node
-	ros::init(argc, argv, "simple_navigation_goals");
+	ros::init(argc, argv, "pick_objects");
 	
 	// Tell the action client that we want to spin a thread by default
 	MoveBaseClient ac("move_base", true);
@@ -27,13 +26,14 @@ int main(int argc, char** argv) {
 	// Define a position and orientation for the robot to reach
 	// goal.target_pose.pose.position.x = 1.0;
 	// goal.target_pose.pose.orientation.w = 1.0;
-	double goals[2][2] = {{-1.0, 12.5}, {4.0, -3.0}};
+	// double goals[2][2] = {{-1.0, 12.5}, {4.0, -3.0}};
+	double goals[2][2] = {{-3, 0.5}, {0, 0}};
 	int num_points = 2;
 	
 	for (int i = 0; i < num_points; i++) {
 		goal.target_pose.pose.position.x = goals[i][0];
 		goal.target_pose.pose.position.y = goals[i][1];
-		goal.target_pose.pose.orientation = tf::createQuaternionMsgFromYaw(goals[i][2]);
+		goal.target_pose.pose.orientation.w = 1.0;
 		
 		// Send the gaol position and orientatian for the robot to reach
 		ROS_INFO("Sending goal");

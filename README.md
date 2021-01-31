@@ -23,3 +23,12 @@ catkin_make
 ```
 
 Install package dependencies with ```rosdep install [package-name]```
+
+source and build the project:
+```
+cd ~/catkin_ws
+source devel/setup.bash
+catkin_make
+```
+
+Run ```./home_service.sh``` in ```scripts``` directory to deploy the home service robot

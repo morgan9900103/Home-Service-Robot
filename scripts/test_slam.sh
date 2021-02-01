@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xterm -e " export TURTLEBOT_GAZEBO_WORLD_FILE=~/catkin_ws/src/worlds/world.world " &
+xterm -e " export TURTLEBOT_GAZEBO_WORLD_FILE=$(rospack find add_markers)/../worlds/world.world " &
 sleep 1
 
 xterm -e " roslaunch turtlebot_gazebo turtlebot_world.launch" &

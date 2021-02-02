@@ -58,7 +58,13 @@ int main(int argc, char** argv) {
 	
 	marker.lifetime = ros::Duration();
 	
-	marker_pub.publish(marker);
+	while (marker_pub.getNumSubscribers() < 1) {
+		if (!ros::ok()) {
+			return 0;
+		}
+		ROS_WARN_ONCE("Please create a subscriber to the marker");
+		sleep(1);
+	}
 	
 	bool is_picked = false;
 	float tol = 0.2;

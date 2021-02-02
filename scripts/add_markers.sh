@@ -7,6 +7,6 @@ xterm -e " export TURTLEBOT_GAZEBO_MAP_FILE=~/catkin_ws/src/map/map.yaml ;roslau
 sleep 5
 
 xterm -e " rosrun rviz rviz -d $(rospack find add_markers)/../rvizConfig/home_service_robot.rviz " &
-sleep 5
+sleep 7
 
-xterm -e " rosrun add_markers add_markers "
+xterm -e " rosrun add_markers add_markers_test "
